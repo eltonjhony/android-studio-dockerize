@@ -1,0 +1,16 @@
+version: '2'
+services:
+  studio:
+    image: eltonjhony/android-studio
+    environment:
+      DISPLAY: $DISPLAY
+    volumes:
+      - $HOME:/home/developer/home
+      - $HOME/.cache/winetricks:/home/developer/.cache/winetricks
+      - $HOME/.Xauthority:/home/developer/.Xauthority
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - /dev/kvm:/dev/kvm
+      - /dev/bus/usb:/dev/bus/usb
+    network_mode: "host"
+    privileged: true
+    command: studio.sh
